@@ -1,0 +1,4 @@
+prune examples
+prune docs
+include README_IA.md
+global-exclude *.xlsx *.xls *.jpg *.jpeg *.png
