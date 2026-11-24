@@ -14,6 +14,16 @@ python -m pip install .
 
 ## Utilisation
 
+Pour afficher la description de la bibliothèque, ses fonctionnalités et les
+options de la commande CSV :
+
+```shell
+python -m py6sigma --help
+```
+
+La bibliothèque propose davantage de fonctionnalités via son API Python que
+via la commande CSV :
+
 ```python
 import py6sigma
 
@@ -287,12 +297,14 @@ Pour DPO égal à 0 ou 1, les niveaux correspondants sont respectivement
 En ligne de commande, avec une colonne numérique `CycleTime` dans un CSV :
 
 ```shell
-py6sigma --file data.csv --column CycleTime --lsl 10 --usl 20
+python -m py6sigma --file data.csv --column CycleTime --lsl 10 --usl 20
 ```
 
 Les limites sont facultatives et peuvent être fournies séparément.
 Utiliser `--no-plots` pour ne pas afficher les graphiques. Les cellules CSV
 vides sont ignorées ; les autres valeurs invalides déclenchent une erreur.
+La commande `py6sigma` reste également disponible lorsque le dossier des
+scripts Python est présent dans le `PATH`.
 
 ## Précisions statistiques
 
@@ -335,6 +347,19 @@ vides sont ignorées ; les autres valeurs invalides déclenchent une erreur.
   [statistiques du run chart](https://support.minitab.com/en-us/minitab/help-and-how-to/quality-and-process-improvement/quality-tools/how-to/run-chart/interpret-the-results/all-statistics-and-graphs/),
   [positions du probability plot](https://support.minitab.com/en-us/minitab/help-and-how-to/graphs/probability-plot/methods-and-formulas/method-of-obtaining-probability-plot-points/) et
   [test de normalité](https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/basic-statistics/how-to/normality-test/methods-and-formulas/methods-and-formulas/).
+
+## Roadmap
+
+Pistes d'évolution, sans calendrier ni engagement :
+
+- Ajouter des tests statistiques pour plusieurs échantillons, notamment
+  appariés et indépendants.
+- Étendre l'analyse de capabilité aux sous-groupes et aux intervalles de
+  confiance.
+- Améliorer les graphiques : Pareto par groupe ou pondéré par coût et
+  regroupements à plusieurs niveaux.
+- Étendre les validations et les tests sur les versions de Python prises en
+  charge.
 
 ## Développement
 

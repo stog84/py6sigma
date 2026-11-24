@@ -10,7 +10,21 @@ from .analysis import Analysis
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Analyze a numeric CSV column.")
+    parser = argparse.ArgumentParser(
+        prog="py6sigma",
+        description="py6sigma: open-source Python tools for Lean Six Sigma statistical analysis.",
+        epilog=(
+            "Library capabilities (via import py6sigma):\n"
+            "  - Descriptive statistics, runs and normality tests, one-sample t-test\n"
+            "  - Normal process capability and sigma levels from defect counts\n"
+            "  - Histograms, boxplots, run charts, normal probability plots,\n"
+            "    Pareto charts and scatter plots\n"
+            "  - Excel column import and statistical method selection guidance\n\n"
+            "The command-line interface analyzes one numeric CSV column; "
+            "use the Python API for the full range of capabilities."
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
     parser.add_argument("--file", required=True, help="CSV file")
     parser.add_argument("--column", required=True, help="Column name")
     parser.add_argument("--lsl", type=float, help="Lower specification limit")
